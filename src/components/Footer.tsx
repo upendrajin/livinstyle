@@ -19,23 +19,36 @@ export default function Footer() {
 
       {/* Newsletter strip */}
       <div className="relative z-10 border-b border-charcoal-foreground/8">
-        <div className="container mx-auto px-4 lg:px-8 py-10 md:py-14">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="font-display text-xl md:text-2xl font-bold mb-1">Stay in the Loop</h3>
-              <p className="text-charcoal-foreground/50 text-sm">Subscribe for exclusive offers and beauty tips.</p>
+        <div className="container mx-auto px-4 lg:px-8 py-8 md:py-14">
+
+          <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 md:gap-6">
+
+            {/* Text Section */}
+            <div className="text-center md:text-left">
+              <h3 className="font-display text-lg sm:text-xl md:text-2xl font-bold mb-1">
+                Stay in the Loop
+              </h3>
+              <p className="text-charcoal-foreground/50 text-xs sm:text-sm">
+                Subscribe for exclusive offers and beauty tips.
+              </p>
             </div>
-            <div className="flex w-full md:w-auto gap-3">
+
+            {/* Input + Button */}
+            <div className="flex flex-col sm:flex-row w-full md:w-auto gap-3">
+
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 md:w-72 px-5 py-3 rounded-full bg-charcoal-foreground/5 border border-charcoal-foreground/10 text-sm text-charcoal-foreground placeholder:text-charcoal-foreground/30 focus:outline-none focus:border-primary/50 transition"
+                className="w-full sm:flex-1 sm:min-w-[220px] md:w-72 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-charcoal-foreground/5 border border-charcoal-foreground/10 text-sm text-charcoal-foreground placeholder:text-charcoal-foreground/30 focus:outline-none focus:border-primary/50 transition"
               />
-              <button className="px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 shrink-0">
+
+              <button className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 shrink-0">
                 Subscribe
               </button>
+
             </div>
           </div>
+
         </div>
       </div>
 
@@ -104,7 +117,7 @@ export default function Footer() {
                 { icon: Phone, text: "+1 (123) 456-7890" },
                 { icon: Mail, text: "info@enrichsalon.com" },
               ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-start gap-3">
+                <div key={text} className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                     <Icon className="h-4 w-4 text-primary" />
                   </div>
