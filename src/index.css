@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 40 42% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 37 33% 93%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 37 33% 93%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 40 42% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 90%;
+    --input: 30 20% 90%;
+    --ring: 40 42% 55%;
+
+    --radius: 1.5rem;
+
+    --charcoal: 220 15% 13%;
+    --charcoal-foreground: 0 0% 95%;
+    --gold: 40 42% 55%;
+    --gold-light: 40 50% 70%;
+    --bone: 40 33% 98%;
+    --beige: 37 33% 93%;
+
+    --header-bg: 215 60% 22%;
+    --header-foreground: 210 20% 95%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-dark {
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-liquid {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(30px) saturate(1.8);
+    -webkit-backdrop-filter: blur(30px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-liquid-dark {
+    background: rgba(43, 43, 43, 0.158);
+    backdrop-filter: blur(30px) saturate(1.8);
+    -webkit-backdrop-filter: blur(30px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08); */
+  }
+
+  .glass-liquid-dark-2 {
+    background: rgb(0, 0, 0);
+    backdrop-filter: blur(30px) saturate(1.8);
+    -webkit-backdrop-filter: blur(30px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08); */
+  }
+
+  .shadow-elegant {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-liquid {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, hsl(40 42% 55%), hsl(40 50% 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Liquid blob animation */
+@keyframes liquid-blob {
+
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+
+  75% {
+    border-radius: 60% 40% 60% 30% / 60% 40% 30% 60%;
+  }
+}
+
+.liquid-shape {
+  animation: liquid-blob 8s ease-in-out infinite;
+}
