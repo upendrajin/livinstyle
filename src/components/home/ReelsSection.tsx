@@ -220,7 +220,7 @@ export default function ReelsSection() {
             {reels.map((reel, i) => (
               <div
                 key={i}
-                className="pl-4 md:pl-5 min-w-0 shrink-0 grow-0 basis-[55%] sm:basis-[48%] md:basis-[28%] lg:basis-[26%]"
+                className="pl-4 md:pl-5 min-w-0 shrink-0 grow-0 basis-[90%] sm:basis-[48%] md:basis-[20%] lg:basis-[26%]"
               >
                 <div className="group relative rounded-2xl md:rounded-3xl overflow-hidden aspect-[9/16]  cursor-pointer">
 
