@@ -47,7 +47,7 @@ export default function Footer() {
               <div className="w-9 h-9 rounded-xl bg-primary/20 flex items-center justify-center">
                 <Scissors className="h-5 w-5 text-primary" />
               </div>
-              <span className="font-display text-lg font-bold">Enrich <span className="text-primary">Salon</span></span>
+              <span className="font-display text-lg font-bold">Liv in <span className="text-primary">style</span></span>
             </div>
             <p className="text-sm text-charcoal-foreground/50 leading-relaxed mb-6">
               Where beauty meets luxury. Experience premium hair care with our expert artists in an environment designed for your comfort.

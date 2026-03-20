@@ -38,7 +38,7 @@ export default function Navbar() {
             <Scissors className="h-5 w-5 text-primary" />
           </div>
           <span className="font-display text-xl font-bold text-header-foreground">
-            Enrich <span className="text-primary">Salon</span>
+            Liv in <span className="text-primary">style</span>
           </span>
         </Link>
 
