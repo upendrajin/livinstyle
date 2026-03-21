@@ -26,10 +26,10 @@ export default function Booking() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="pt-32 pb-24 bg-background">
+      <div className="pt-32 pb-24 bg-black">
         <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
           <div className="text-center mb-12">
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Book Appointment</h1>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Book Appointment</h1>
           </div>
 
           {/* Steps */}
@@ -37,7 +37,7 @@ export default function Booking() {
             {steps.map((s, i) => (
               <div key={i} className="flex items-center gap-2">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all ${
-                  i <= step ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"
+                  i <= step ? "bg-primary text-primary-foreground" : "bg-secondary/10 text-white hover:bg-secondary/40"
                 }`}>
                   {i < step ? <Check className="h-4 w-4" /> : i + 1}
                 </div>
@@ -47,7 +47,7 @@ export default function Booking() {
             ))}
           </div>
 
-          <div className="bg-card rounded-xl p-8 shadow-elegant">
+          <div className="bg-card/10 rounded-xl p-8 shadow-elegant">
             {step === 0 && (
               <div className="grid grid-cols-2 gap-4">
                 {services.map((s, i) => (
@@ -55,12 +55,12 @@ export default function Booking() {
                     key={i}
                     onClick={() => setSelected(i)}
                     className={`rounded-xl overflow-hidden cursor-pointer border-2 transition-all duration-300 ${
-                      selected === i ? "border-primary" : "border-transparent"
+                      selected === i ? "border-primary" : "border-white/10"
                     }`}
                   >
                     <img src={s.img} alt={s.title} className="w-full aspect-video object-cover" />
                     <div className="p-4">
-                      <h3 className="font-display text-sm font-semibold text-foreground">{s.title}</h3>
+                      <h3 className="font-display text-sm font-semibold text-white">{s.title}</h3>
                       <p className="text-xs text-primary mt-1">{s.price}</p>
                     </div>
                   </div>
@@ -90,7 +90,7 @@ export default function Booking() {
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <Check className="h-8 w-8 text-primary" />
                 </div>
-                <h2 className="font-display text-2xl font-bold text-foreground mb-2">Booking Confirmed!</h2>
+                <h2 className="font-display text-2xl font-bold text-white mb-2">Booking Confirmed!</h2>
                 <p className="text-sm text-muted-foreground">Thank you for choosing Enrich Salon. We'll send a confirmation to your email.</p>
               </div>
             )}

@@ -30,10 +30,10 @@ export default function Gallery() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="pt-32 pb-24 bg-background">
+      <div className="pt-32 pb-24 bg-black">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-12">
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Portfolio Gallery</h1>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">Gallery</h1>
             <p className="text-muted-foreground text-sm max-w-lg mx-auto">Browse our latest work.</p>
           </div>
 
@@ -43,7 +43,7 @@ export default function Gallery() {
                 key={f}
                 onClick={() => setActive(f)}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  active === f ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground/60"
+                  active === f ? "bg-primary text-primary-foreground" : "bg-secondary/10 text-white hover:bg-secondary/40"
                 }`}
               >
                 {f}
