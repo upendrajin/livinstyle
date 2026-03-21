@@ -24,13 +24,17 @@ export default function Navbar() {
 
   useEffect(() => setOpen(false), [location]);
 
+  // Prevent body scroll when menu open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
           ? "bg-black/50 backdrop-blur-md"
           : " backdrop-blur-md/0"
-      }`}
+        }`}
     >
       <div className="container mx-auto flex items-center justify-between py-3.5 px-4 lg:px-8">
         <Link to="/" className="flex items-center gap-2.5">
@@ -47,9 +51,8 @@ export default function Navbar() {
             <Link
               key={l.path}
               to={l.path}
-              className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                location.pathname === l.path ? "text-primary" : "text-header-foreground/75"
-              }`}
+              className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${location.pathname === l.path ? "text-primary" : "text-header-foreground/75"
+                }`}
             >
               {l.label}
             </Link>
@@ -72,27 +75,51 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile */}
+      {/* Overlay */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-400 ${
-          open ? "max-h-96 border-b border-white/10" : "max-h-0"
-        } bg-header/95 backdrop-blur-xl`}
+        onClick={() => setOpen(false)}
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${open ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+      />
+
+      {/* Offcanvas Menu */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[80%] max-w-sm bg-black/50 z-50 transform transition-transform duration-500 ease-in-out ${open ? "translate-x-0" : "translate-x-full"
+          }`}
       >
-        <nav className="flex flex-col px-6 pb-6 gap-4">
+        {/* Close button */}
+        <div className="flex justify-between p-4">
+          <Link to="/" className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-primary/20 flex items-center justify-center">
+              <Scissors className="h-5 w-5 text-primary" />
+            </div>
+            <span className="font-display text-xl font-bold text-header-foreground">
+              Liv in <span className="text-primary">style</span>
+            </span>
+          </Link>
+          <button onClick={() => setOpen(false)}>
+            <X className="h-6 w-6 text-header-foreground" />
+          </button>
+        </div>
+
+        {/* Centered Menu */}
+        <nav className="flex flex-col items-center justify-center h-[80%] gap-6">
           {navLinks.map((l) => (
             <Link
               key={l.path}
               to={l.path}
-              className={`text-sm font-medium transition-colors ${
-                location.pathname === l.path ? "text-primary" : "text-header-foreground/75"
-              }`}
+              className={`text-lg font-medium transition-colors ${location.pathname === l.path
+                  ? "text-primary"
+                  : "text-header-foreground/75"
+                }`}
             >
               {l.label}
             </Link>
           ))}
+
           <Link
             to="/booking"
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium"
+            className="mt-4 inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-medium"
           >
             Book Appointment
           </Link>
